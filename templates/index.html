@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map</title>
+</head>
+<body>
+    <div id="map">
+
+        <form action="/" method="POST">
+
+            {% for spot in spots %}
+
+                {% if (loop.index-1) % 2 == 0 %}
+                    <br>
+                {% endif %}
+
+                <label>{{spot.id}}</label>
+                {% if spot.Vehicle_no == None %}
+                    <input type="radio" name="spots" value="{{spot.id}}">
+                {% else %}
+                    <input type="radio" name="spots" value="{{spot.id}}" disabled>
+                {% endif %}
+                
+                
+            {% endfor %}
+            <br>
+            <button type="submit">Park</button>
+
+        </form>
+    </div>
+</body>
+</html>
